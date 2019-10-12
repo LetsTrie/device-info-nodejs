@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 style="text-decoration: underline;">headers</h1>
+  <% Object.keys(headers).forEach(x => { %>
+  <p style="font-size: 30px; margin: 0px;"> <%=x%> : <span style="font-size: 20px;"><%=headers[x]%></span> </p>
+  <% }) %>
+
+  <h1 style="text-decoration: underline">IP Adress</h1>
+  <%= ip %>
+
+  <h1 style="text-decoration: underline;">Device Informations</h1>
+  <% Object.keys(deviceInfo).forEach(x => { %>
+  <% if(typeof (deviceInfo[x]) === 'object') { %>
+  <p style="font-size: 30px; margin: 0px;"> <%=x%> :=> </p>
+
+  <% Object.keys(deviceInfo[x]).forEach(y => { %>
+  <p style="padding-left: 2%; font-size: 30px; margin: 0px;"> <%=y%> : <span
+      style="font-size: 20px;"><%=(deviceInfo[x][y] === undefined ? 'N/A' : deviceInfo[x][y])%></span> </p>
+  <% }); %>
+
+  <%} else { %>
+  <p style="font-size: 30px; margin: 0px;"> <%=x%> : <span style="font-size: 20px;"><%=deviceInfo[x]%></span> </p>
+  <% }; %>
+  <% }) %>
+
+</body>
+
+</html>
